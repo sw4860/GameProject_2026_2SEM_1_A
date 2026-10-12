@@ -122,4 +122,9 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log($"현재 상태 : {currentState}");
     }
+
+    void OnDash(InputValue value)
+    {
+        Debug.Log("더블 클릭");
+    }
 }
