@@ -11,11 +11,14 @@ public class PickupItem : MonoBehaviour
     [SerializeField] private float floatingHeight = 0.15f;
     [SerializeField] private float floatingSpeed = 2f;
 
+    private QuestManager questManager;
+
     private Vector3 startPosition;
 
     void Start()
     {
         startPosition = transform.position;
+        questManager = FindAnyObjectByType<QuestManager>();
     }
 
     void Update()
@@ -29,6 +32,7 @@ public class PickupItem : MonoBehaviour
     public void Collect()
     {
         Debug.Log($"{itemName} {amount}개 획득");
+        questManager.AddQuestItem(itemName, amount);
         Destroy(gameObject);
     }
 
