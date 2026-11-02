@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public enum PlayerState
 { 
     Normal,
-    Pickup
+    Pickup,
+    Inventory
 }
 
 public class PlayerController : MonoBehaviour
@@ -123,8 +124,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"현재 상태 : {currentState}");
     }
 
-    void OnDash(InputValue value)
+    public bool isNormalState()
     {
-        Debug.Log("더블 클릭");
+        return currentState == PlayerState.Normal;
     }
 }
